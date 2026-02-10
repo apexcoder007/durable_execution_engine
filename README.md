@@ -135,3 +135,28 @@ Run repeated stress cycles directly:
 ```bash
 ./scripts/soak.sh --iterations 10
 ```
+
+## Performance benchmarks
+
+Benchmark suite is implemented in:
+
+- `engine/benchmark_test.go`
+  - `BenchmarkStepColdWrite`
+  - `BenchmarkStepCachedRead`
+  - `BenchmarkStepParallelWrites`
+  - `BenchmarkOnboardingWorkflowE2E`
+
+Run all benchmarks:
+
+```bash
+mkdir -p /tmp/go-cache /tmp/go-tmp
+GOCACHE=/tmp/go-cache GOTMPDIR=/tmp/go-tmp go test ./engine -run '^$' -bench . -benchmem -count 1
+```
+
+Run benchmark with CPU/memory profile:
+
+```bash
+GOCACHE=/tmp/go-cache GOTMPDIR=/tmp/go-tmp go test ./engine -run '^$' -bench BenchmarkStepParallelWrites -benchmem -cpuprofile /tmp/cpu.out -memprofile /tmp/mem.out
+go tool pprof /tmp/cpu.out
+go tool pprof /tmp/mem.out
+```
