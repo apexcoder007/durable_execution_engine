@@ -1,5 +1,20 @@
 AI tool used : OpenAI GPT 5.3 Codex
 1. build this entire project in Go, carefully follow each and every steps given in this doc, i should get a correct working prototype after you are done with it
+2. ok i want to test each and every feature mentioned in that assignment pdf, give me the commands to run so that i can test them myself
+3. explain the test cases you generated and its corresponding outputs in detail
+4. Bonus Challenge: Implement "Automatic Sequence ID" generation (inspecting the stack trace
+or using an internal atomic counter) so the user doesn't have to provide a manual string ID for
+every step. this was mentioned in the pdf i attached, how did you implement this part, explain in detail
+5. give me all the commands for complete, holistic and rigourous testing so that i can test each and every feature with all the edge cases properly, also explain what each and every command does 
+6. can we make the tests more complex and rigorous? 
+7. ok implement the rigourous test pack 
+8. how do i benchmark the performance of my engine?
+9. i want to benchmark the performance of my engine, give me the code to do so with all the necessary commands
+
+
+
+
+
 
 Notes:
 - No additional external AI tooling prompts were used beyond the request above.
