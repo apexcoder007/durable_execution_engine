@@ -6,3 +6,8 @@
 # Runtime artifacts
 *.db
 state/
+_qa/
+*.db-shm
+*.db-wal
+*_state/
+.DS_Store

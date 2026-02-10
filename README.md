@@ -25,6 +25,8 @@ This repository contains a working Go prototype of a native durable workflow eng
 - `examples/onboarding/` employee onboarding workflow example
 - `main/` CLI app to start, crash, and resume workflow
 - `internal/errgroup/` small local errgroup implementation used for parallel steps
+- `scripts/soak.sh` repeated stress runner for rigorous testing
+- `qa.sh` end-to-end QA runner with standard and rigorous modes
 - `Prompts.txt` prompts used during AI-assisted build
 
 ## Requirements
@@ -100,3 +102,36 @@ This keeps the prototype resilient and practical without introducing a separate 
 go test ./...
 ```
 
+## Rigorous test pack
+
+Additional rigorous tests are implemented in:
+
+- `engine/rigorous_test.go`
+  - `TestRandomizedResumeProducesDeterministicOutputs`
+  - `TestHighContentionManyWorkflowsParallel`
+  - `TestCorruptedCachedOutputFailsFast`
+  - `TestZombieTimeoutBlocksImmediateTakeover`
+
+These add randomized resume-equivalence checks, high-contention concurrency stress, corrupted-checkpoint handling, and strict zombie-timeout behavior.
+
+## QA script
+
+Run the full QA suite:
+
+```bash
+./qa.sh
+```
+
+Run the rigorous mode (includes extra stress pack and soak loop):
+
+```bash
+./qa.sh --rigorous
+```
+
+## Soak runner
+
+Run repeated stress cycles directly:
+
+```bash
+./scripts/soak.sh --iterations 10
+```
