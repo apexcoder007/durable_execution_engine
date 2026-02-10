@@ -1,0 +1,5 @@
+AI tool used : OpenAI GPT 5.3 Codex
+1. build this entire project in Go, carefully follow each and every steps given in this doc, i should get a correct working prototype after you are done with it
+
+Notes:
+- No additional external AI tooling prompts were used beyond the request above.
